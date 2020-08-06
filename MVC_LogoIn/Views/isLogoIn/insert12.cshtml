@@ -1,0 +1,51 @@
+﻿@model MVC_LogoIn.Models.Customers
+
+@{
+    ViewBag.Title = "insert12";
+    Layout = null;
+}
+<html>
+    <head>
+        <title>【Go Top】共享出租平台-->建立會員</title>
+        <link rel="stylesheet" href="~/Content/LogoIn.css" />
+    </head>
+    <body>
+        <div>
+            <form method="post">
+                <h2>創新帳號</h2>
+
+                <div class="div2">
+                    <span>會員帳號 : </span>
+                    <input type="text" name="Email" />
+                </div>
+                <div class="div2">
+                    <span>會員密碼 : </span>
+                    <input type="password" name="Password" />
+                </div>
+                <div class="div2">
+                    <span>會員姓名 : </span>
+                    <input type="text" name="UserName" />
+                </div>
+                <div class="div2">
+                    <span>會員性別 : </span>
+                    <input type="text" name="Gender" />
+                </div>
+                <div class="div2">
+                    <span>會員地址 : </span>
+                    <input type="text" name="Address" />
+                </div>
+                <div class="div2">
+                    <span>會員電話 : </span>
+                    <input type="text" name="Phone" />
+                </div>
+                <div class="div2">
+                    <span>會員照片 : </span>
+                    <input type="file" name="Photo" />
+                </div>
+                <div class="div2">                   
+                    <input type="submit" value="確 認 "style="background:red;color:white;width:300px;height:35px;font-size:25px;" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

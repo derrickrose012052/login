@@ -1,0 +1,60 @@
+﻿@model MVC_LogoIn.Models.CCustomers[]
+@using MVC_LogoIn.Models
+@{
+    ViewBag.Title = "HomeList";
+    Layout = null;
+}
+<html>
+<head>
+    <title>一起【Go Top】安心騎乘，快樂出遊</title>
+    <link rel="stylesheet" href="~/Content/LogoIn.css" />
+</head>
+<body>
+    <div class="div1">
+        <div class="div3">
+            <form method="post">
+                <h1 style="width:1000px;height:150px;text-align:center;line-height:150px;">歡迎 @Session[ReadonlySession.sk_customers_LogoIn_Email_Account] 會員回來！</h1>
+                <p style="margin-left:650px;margin-top:50px;height:100px;line-height:100px;text-align:center;font-size:20px;">
+                    查詢 : @Html.TextBox("searching")
+                    <input type="submit" value="搜 尋" style="background:red;color:white;width:80px;height:35px;font-size:25px;" placeholder=" 請輸入關鍵字(姓名、性別、地址);" />
+                </p>
+            </form>
+        </div>
+        <h2>
+            Go Top共享租車平台會員資訊查詢表
+            <a href="~/isLogoIn/shop" style="margin-left:10px;text-decoration:none;color: #46A3FF;font-size:25px;"><input type="button" value="開始租借" style="height:40px;width:150px;background:#46A3FF;font-family:微軟正黑體;font-size:25px;color:white;" /></a>
+        </h2>
+        <table style="border-bottom:1px solid grey; font-size:20px;width:1000px;height:500px;margin:10px auto;text-align:center;">
+            <tr>
+                <td>編號</td>
+                <td>會員姓名</td>
+                <td>會員性別</td>
+                <td>會員地址</td>
+                <td>會員電話</td>
+                <td>會員照片</td>
+                <td>會員資料修改</td>
+                <td>會員資料刪除</td>
+            </tr>
+
+            @{
+                int count = 1;
+                foreach (CCustomers p in Model)
+                {
+                    <tr>
+                        <td>@count.ToString()</td>
+                        <td>@p.UserName</td>
+                        <td>@p.Gender</td>
+                        <td>@p.Address</td>
+                        <td>@p.Phone</td>
+                        <td>@p.Photo</td>
+                        <td>@Html.ActionLink("修改", "update12", new { id = p.id }, new { style = " text-decoration:none; color: #46A3FF;", Onclick = "return confirm('確認要修改此筆資料嗎?')" })</td>
+                        <td>@Html.ActionLink("刪除", "delete12", new { id = p.id }, new { style = " text-decoration:none; color: #46A3FF;", Onclick = "return confirm('確認要刪除此筆資料嗎?')" })</td>
+                    </tr>
+                    count++;
+                }
+            }
+        </table>
+
+    </div>
+</body>
+</html>

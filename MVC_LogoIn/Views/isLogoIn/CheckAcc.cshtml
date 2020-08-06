@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Check Acc</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Check Acc</h2>
+    帳號 : <input type="text" id="fname" onblur="check()"><br><br>
+    <div id="demo"></div>
+    <script>
+        //function check() {
+        //    var xhttp = new XMLHttpRequest();
+        //    xhttp.onreadystatechange = function () {
+        //        if (xhttp.readyState == 4 && xhttp.status == 200) {
+        //            // 伺服器為以字串格式傳boolean值,JavaScript透過eval()轉換
+        //            var isAccOK = eval(xhttp.responseText);
+        //            document.getElementById("demo").innerHTML =
+        //                (isAccOK) ? "允許登入" : "無此帳號";
+        //        }
+        //    }
+        //    xhttp.open("GET", "/is首頁/CheckAccount?cname=" + fname.value, true);
+        //    xhttp.send();
+        //}
+        function check() {
+        $.ajax({
+            url: "/isLogoIn/CheckAcc?cname=" + fname.value,
+            type: "Get",
+            success: function (data) {
+                
+                var isok = eval(data.toLocaleLowerCase());
+                $("demo").html(isok)?"允許登入":"無此帳號";
+            }
+            });
+        }
+    </script>
+</body>
+</html>

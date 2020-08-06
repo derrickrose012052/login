@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LogoInCustomersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="femail" Type="nvarchar" MaxLength="100" />
+          <Property Name="fpassword" Type="nvarchar" MaxLength="100" />
+          <Property Name="fusername" Type="nvarchar" MaxLength="100" />
+          <Property Name="fgender" Type="nvarchar" MaxLength="50" />
+          <Property Name="faddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="fphone" Type="nvarchar" MaxLength="100" />
+          <Property Name="fphoto" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pproductname" Type="nvarchar" MaxLength="100" />
+          <Property Name="ptqy" Type="int" />
+          <Property Name="pcust" Type="money" />
+          <Property Name="pprice" Type="money" />
+          <Property Name="pphoto" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Shopping">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sdate" Type="nvarchar" MaxLength="250" />
+          <Property Name="scustomername" Type="nvarchar" MaxLength="50" />
+          <Property Name="sproductname" Type="nvarchar" MaxLength="50" />
+          <Property Name="scount" Type="int" />
+          <Property Name="sprice" Type="money" />
+        </EntityType>
+        <EntityContainer Name="LogoInCustomersModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shopping" EntityType="Self.Shopping" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogoInCustomersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="femail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fpassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fusername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fgender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="faddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="fphone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fphoto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="LogoInCustomersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Shoppings" EntityType="LogoInCustomersModel.Shopping" />
+          <EntitySet Name="Products" EntityType="LogoInCustomersModel.Product" />
+        </EntityContainer>
+        <EntityType Name="Shopping">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sdate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="scustomername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sproductname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="scount" Type="Int32" />
+          <Property Name="sprice" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pproductname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ptqy" Type="Int32" />
+          <Property Name="pcust" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="pprice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="pphoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LogoInCustomersModelStoreContainer" CdmEntityContainer="LogoInCustomersEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LogoInCustomersModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="femail" ColumnName="femail" />
+                <ScalarProperty Name="fpassword" ColumnName="fpassword" />
+                <ScalarProperty Name="fusername" ColumnName="fusername" />
+                <ScalarProperty Name="fgender" ColumnName="fgender" />
+                <ScalarProperty Name="faddress" ColumnName="faddress" />
+                <ScalarProperty Name="fphone" ColumnName="fphone" />
+                <ScalarProperty Name="fphoto" ColumnName="fphoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shoppings">
+            <EntityTypeMapping TypeName="LogoInCustomersModel.Shopping">
+              <MappingFragment StoreEntitySet="Shopping">
+                <ScalarProperty Name="sprice" ColumnName="sprice" />
+                <ScalarProperty Name="scount" ColumnName="scount" />
+                <ScalarProperty Name="sproductname" ColumnName="sproductname" />
+                <ScalarProperty Name="scustomername" ColumnName="scustomername" />
+                <ScalarProperty Name="sdate" ColumnName="sdate" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LogoInCustomersModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="pphoto" ColumnName="pphoto" />
+                <ScalarProperty Name="pprice" ColumnName="pprice" />
+                <ScalarProperty Name="pcust" ColumnName="pcust" />
+                <ScalarProperty Name="ptqy" ColumnName="ptqy" />
+                <ScalarProperty Name="pproductname" ColumnName="pproductname" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

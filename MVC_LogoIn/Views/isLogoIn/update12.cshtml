@@ -1,0 +1,63 @@
+﻿@model MVC_LogoIn.Models.Customers
+
+@{
+    ViewBag.Title = "update12";
+    Layout = null;
+}
+<html>
+<head>
+    <title>【Go Top】共享出租平台-->會員基本資料修改</title>
+    <link rel="stylesheet" href="~/Content/LogoIn.css" />
+</head>
+<body>
+    <div>
+        <form method="post">
+            <h2 style="margin-left:880px;">修改會員資料</h2>
+            <div class="div2">
+                <span>會員編號 :</span>
+                @Html.EditorFor(model => model.fid)
+                @Html.ValidationMessageFor(model => model.fid, "")
+            </div>
+            <div class="div2">
+                <span>會員帳號 :</span>
+                @Html.EditorFor(model => model.femail)
+                @Html.ValidationMessageFor(model => model.femail, "")
+            </div>
+            <div class="div2">
+                <span>會員密碼 : </span>
+                @Html.EditorFor(model => model.fpassword)
+                @Html.ValidationMessageFor(model => model.fpassword, "")
+            </div>
+            <div class="div2">
+                <span>會員姓名 : </span>
+                @Html.EditorFor(model => model.fusername)
+                @Html.ValidationMessageFor(model => model.fusername, "")
+            </div>
+            <div class="div2">
+                <span>會員性別 : </span>
+                @Html.EditorFor(model => model.fgender)
+                @Html.ValidationMessageFor(model => model.fgender, "")
+            </div>
+            <div class="div2">
+                <span>會員地址 : </span>
+                @Html.EditorFor(model => model.faddress)
+                @Html.ValidationMessageFor(model => model.faddress, "")
+            </div>
+            <div class="div2">
+                <span>會員電話 : </span>
+                @Html.EditorFor(model => model.fphone)
+                @Html.ValidationMessageFor(model => model.fphone, "")
+            </div>
+            <div class="div2">
+                <span>會員照片 : </span>
+                @Html.EditorFor(model => model.fphoto)
+                @Html.ValidationMessageFor(model => model.fphoto, "")
+            </div>
+            <div class="div2">
+                <input type="submit" value="確 認 " style="background:red;color:white;width:150px;height:35px;font-size:25px;" />
+                <a href="~/isLogoIn/HomeList" style="color: #46A3FF;width:150px;height:35px;font-size:25px; margin-left:50px;">返 回</a>
+            </div>
+        </form>  
+    </div>  
+</body>
+</html>

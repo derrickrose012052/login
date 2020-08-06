@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVC_LogoIn.Models.Product>
+@{
+    ViewBag.Title = "shop";
+    Layout = null;
+}
+<html>
+<head>
+    <title>【Go Top】線上出租車輛</title>
+    <link href="~/Content/LogoIn.css" rel="stylesheet" />
+</head>
+<body>
+    <div>       
+        <div class="div5">            
+            <form method="post">
+                <h1>【Go Top】出租平台</h1>
+                <div style="margin-left:930px;">
+                    <a href="~/isLogoIn/shopCarList" style="text-decoration:none;color: #46A3FF;font-size:25px;"><input type="button" value="檢視購物車" style="height:40px;width:150px;background:#46A3FF;font-family:微軟正黑體;font-size:25px;color:white;"/></a><br /><br />
+                </div>                                  
+                <table style="border:1px solid grey;width:1500px;font-size:25px;">
+                    <tr>
+                        <th>機車編號</th>
+                        <th>機車名稱</th>
+                        <th>現有數量</th>
+                        <th>預租優惠價</th>
+                        <th>預租單價</th>
+                        <th>租借機車圖示</th>
+                        <th>租借購物車</th>
+                        <th>租借清單</th>
+                        <th>租借清單</th>
+                    </tr>
+
+                    @{
+                        int count = 1;
+                        foreach (var p in Model)
+                        {
+                            <tr>
+                                <td>@count</td>
+                                <td>@Html.DisplayFor(modelp => p.pproductname)</td>
+                                <td>@Html.DisplayFor(modelp => p.ptqy)</td>
+                                <td>NT$@Html.DisplayFor(modelp => p.pcust)</td>
+                                <td>NT$@Html.DisplayFor(modelp => p.pprice)</td>
+                                <td>@Html.DisplayFor(modelp => p.pphoto)</td>
+                                <td>@Html.ActionLink("加入購物車(session作法)", "AddCarSession", new { id = p.pid }, new { style = "text-decoration:none;color: #46A3FF;" })</td>
+                                <td>@Html.ActionLink("修改購物車產品", "", new { id = p.pid }, new { style = "text-decoration:none;color: #46A3FF;" })</td>
+                                <td>@Html.ActionLink("刪除已選產品", "", new { id = p.pid }, new { style = "text-decoration:none;color: #46A3FF;" })</td>
+                            </tr>
+                            count++;
+                        }
+                    }
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+

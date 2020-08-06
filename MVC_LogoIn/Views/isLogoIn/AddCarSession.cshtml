@@ -1,0 +1,38 @@
+﻿@model MVC_LogoIn.Models.Product
+
+@{
+    ViewBag.Title = "AddCarSession";
+}
+
+<h2>加入購物車</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>購物車</h4>
+        <hr/>
+        <input type="hidden" name="sproductname" value="@Model.pid" /> @*這段重要*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("租借數量", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("scount", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="確 定" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("返回", "HomeList")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

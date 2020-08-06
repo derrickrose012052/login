@@ -1,0 +1,64 @@
+﻿body{
+    font-family:微軟正黑體;
+}
+.div2{
+    margin:50px auto;
+    font-size:20px;
+    text-align:center;
+    /*height:200px;*/
+}
+h2{
+    margin-left:750px;
+    margin-top:30px;
+}
+input{
+    font-size:15px;
+    width:200px;
+    border-radius:10px;
+    height:30px;
+}
+.dv1 {
+    font-family: 微軟正黑體;
+    margin: 200px auto;   
+    text-align:center;
+    height:800px;
+}
+.span1 {
+    color: #46A3FF;
+    font-size:18px;
+    text-decoration:none;
+}
+.titlepicture{
+    width:80px;
+    height:80px;
+    position:absolute;
+    background:url(../Content/scooter.png) center no-repeat;
+    background-size:100% 100%;
+    left:49%;
+    top:300px;
+    margin-left:-27px;
+}
+td {
+    border-top: 1px solid black;
+    text-align:center;
+}
+.div3 {
+    width:1000px;
+    margin-left:450px;
+    margin-top:10px;
+    color:red;
+}
+.div1{
+    font-family:微軟正黑體;
+}
+.div4{
+    margin:50px auto;
+    width:150px;
+}
+.div5 {
+   margin:150px auto;
+   width:1500px;
+   height:1000px;
+  font-size:20px;
+   text-align:center;
+}

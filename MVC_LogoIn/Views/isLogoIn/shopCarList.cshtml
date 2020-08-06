@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVC_LogoIn.Models.shoppingcar>
+
+@{
+    ViewBag.Title = "shopCarList";
+    int count = 0;
+    string noTaxPrice = "";
+    double x = 0;
+    string Tax = "";
+    double y = 0;
+    string TaxPrice = "";
+    double z = 0;
+}
+
+<h2>結帳區</h2>
+
+<p>
+    @Html.ActionLink("繼續購物", "shop")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            產品編號
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pPrice)
+        </th>
+        <th>
+            小計
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        x += item.pSum;
+        noTaxPrice = x.ToString();
+        y = x * 0.05;
+        Tax = y.ToString();
+        z = x * 1.05;
+        TaxPrice = z.ToString();
+        count++;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pSum)
+            </td>
+        </tr>
+    }
+
+</table>
+<p>未稅金額:$@noTaxPrice</p>
+<p>稅    額:$@Tax</p>
+<p>應付金額:$@TaxPrice</p>
+
